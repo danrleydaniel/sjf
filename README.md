@@ -4,5 +4,8 @@ Em escalonamento de processos, existe um cálculo que serve para prever a duraç
 ## T<sub>n+1</sub> = $\alpha$ × (1 - $\alpha$) × T<sub>n</sub>
 Essa é a fórmula usada para fazer o cálculo, onde:
 <br>T<sub>n+1</sub> é o próximo pico de CPU
-<br>$\alpha$ é o fator de ponderação onde 0 <= $\alpha$ <= 1
+<br>0 <= $\alpha$ <= 1
 <br>T<sub>n</sub> é o pico de CPU atual
+
+Referência:
+https://homepages.dcc.ufmg.br/~dorgival/slides/so/06-escalonamento-6pp.pdf
