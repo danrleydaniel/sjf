@@ -11,13 +11,12 @@ int main(void){
   int n; //para pegar a quantidade de vezes que o usuário quer que o processo rode
   FILE * fp; //para guardar os valores previstos e calculados
   double cpu_time_used = 0; //como não temos um tempo anterior, o primeiro tempo usado do CPU será 0
-  //TODO: usuário digitará o valor inicial.
   double previst; //para guardar o valor previsto pela forma Tn+1 = α × Tn + (1 - α) × Tn
   float alpha; //para guardar o valor de alpha (dado pelo usuário)
   long long sum; //variável será usada no proceso
   fp = fopen("sjf.txt", "w");
-  printf("Este programa usa o cálculo de previsão dos picos de CPU do SJF para prever a duração do próximo processo. Também calcula automaticamente o tempo de execução e gera um gráfico com ambas as análises, comparando-as.\n\nUse o comando 'plot sjf.txt with lines' para gerar o gráfico no Gnuplot.\n\nDigite, respectivamente, quantas vezes você quer rodar o laço e o valor de alpha para o cálculo de previsão: ");
-  scanf("%d %f",&n, &alpha);
+  printf("Este programa usa o cálculo de previsão dos picos de CPU do SJF para prever a duração do próximo processo. Também calcula automaticamente o tempo de execução e gera um gráfico com ambas as análises, comparando-as.\n\nDigite, respectivamente, quantas vezes você quer rodar o laço, o pico de CPU inicial e o valor de alpha para o cálculo de previsão: ");
+  scanf("%d %lf %f",&n, &cpu_time_used, &alpha);
 
   while (!(0 <= alpha && alpha <= 1)){
     //fator α deve atender o requisito: 0 ≤ α ≤ 1
@@ -27,7 +26,7 @@ int main(void){
 
   for(int i = 0; i < n; i++){
     //processo rodará n vezes (dado pelo usuário)
-    previst = alpha * cpu_time_used + (1 - alpha) * cpu_time_used; //tempo previsto
+    
 
     start = clock(); //pega o tempo inicial, antes do processo
     process(&sum); //processo que terá seu tempo calculado
