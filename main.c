@@ -26,7 +26,7 @@ int main(void){
 
   for(int i = 0; i < n; i++){
     //processo rodará n vezes (dado pelo usuário)
-    
+    previst = alpha * cpu_time_used + (1 - alpha) * cpu_time_used; //tempo previsto
 
     start = clock(); //pega o tempo inicial, antes do processo
     process(&sum); //processo que terá seu tempo calculado
